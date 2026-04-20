@@ -1,0 +1,19 @@
+	"input + float":{
+    "scope": "python",
+    "prefix": "inputfloat",
+    "body": [
+        "${1:variable} = float(input('${2:Introduce el valor: }'))",
+        "$0"
+    ],
+    "description": "Captura una entrada de teclado y la convierte a tipo float"
+},
+	//
+	// You can also restrict snippets to specific files using include/exclude patterns:
+	// "Test snippet": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "test",
+	// 	"body": "test('$1', () => {\n\t$0\n});",
+	// 	"include": ["**/*.test.ts", "*.spec.ts"],
+	// 	"exclude": ["**/temp/*.ts"],
+	// 	"description": "Insert test block"
+	// }
