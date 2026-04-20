@@ -45,4 +45,3 @@ numero += 1 #Esto es igual numero = numero + 1
 print("Despues de operaciones", numero)
 
 
-

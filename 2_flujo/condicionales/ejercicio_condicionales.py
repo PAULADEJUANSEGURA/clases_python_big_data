@@ -20,32 +20,21 @@ else:
     else:
         #Primera hora (2€) + Siguientes 2 horas (1.5€) + Resto de horas (1€)
         precio = 2.00 + (2.00 * 1.5) + (horas_aparcamiento - 3) * 1
-        if tarjeta_residente == "s":
-            descuento_residente = 0.20
-            multiplicador_vehiculo = 1
-            if tipo_vehiculo == "moto":
-                multiplicador_vehiculo = 0.7
-                total = precio * multiplicador_vehiculo * descuento_residente
-            elif tipo_vehiculo == "furgoneta":
-                multiplicador_vehiculo = 1.5
-                total = precio * multiplicador_vehiculo * descuento_residente
-            elif tipo_vehiculo == "coche":
-                total = precio * descuento_residente
-            else:
-                print("No tienes tarjeta de residente")
-                if tarjeta_residente == "n":
-                    multiplicador_vehiculo = 1    
-                    if tipo_vehiculo == "moto":
-                        multiplicador_vehiculo = 0.7
-                        total = precio * multiplicador_vehiculo
-                    elif tipo_vehiculo == "furgoneta":
-                        multiplicador_vehiculo = 1.5
-                        total = precio * multiplicador_vehiculo
-                    elif tipo_vehiculo == "coche":
-                        total = precio * multiplicador_vehiculo
-                    else:
-                        print("Tu tipo de vehiculo no puede aparcar en el parking")          
-            dinero_ahorrado = total - descuento_residente       
+         # Cálculo multiplicador x vehículo
+        multiplicador = 1
+
+        if tipo_vehiculo == 'moto':
+            multiplicador = 0.7
+        elif tipo_vehiculo == 'furgoneta':
+            multiplicador = 1.5
+
+        total = precio * multiplicador
+
+        # Descuento residente
+        descuento = total * 0.20 if tarjeta_residente == 's' else 0
+        total -= descuento
+        dinero_ahorrado = round(descuento, 2)
+
     print(f"""     
     --- TICKET DE APARCAMIENTO ---
     "Horas:{horas_aparcamiento} | Vehículo: {tipo_vehiculo} | Residente: {tarjeta_residente}
