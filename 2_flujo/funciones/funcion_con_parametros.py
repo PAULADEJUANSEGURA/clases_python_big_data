@@ -30,12 +30,15 @@ potencia_optativos(3)
 potencia_optativos(10)
 
 
+
 # MEDIA de 3 numeros
 print("----------PROMEDIO O MEDIA DE 3 NUMEROS------------------")
 def media(numero_1, numero_2, numero_3):
     promedio = (numero_1 + numero_2 + numero_3) / 3
     print(promedio)
 
+
 media(5, 7, 9)
 media(4, 2, 9)
 media(5, 5, 10)
+media(2, 3, 5)
