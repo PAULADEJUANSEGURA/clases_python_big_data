@@ -39,4 +39,6 @@ print(frase_modificada)
 # En esta frase: ¿Como están los máquinas?
 frase_con_espacios = "¿Como están los máquinas?"
 frase_sin_espacios = frase_con_espacios.replace(" ", "")
+frase_sin_2_espacios = frase_con_espacios.replace(" ", "", 2)
 print(frase_sin_espacios)
+print(frase_sin_2_espacios)
