@@ -6,18 +6,24 @@
     # 5 - salir
 # cualquier opcion no descrita vuelve a iniciar el programa
 
+def obtener_texto():
+    texto = input("Dime un texto: ")
+    return texto
+
+
 def pasar_a_minusculas(texto):
-    resultado = texto.lower()
-    return resultado
-
-
-def contar_cantidad_letras(texto):
-    texto_sin_espacios = texto.replace(" ", "")
-    print(f"Tu texto sin espacios es: {texto_sin_espacios}")
-    print(f"El numero de caracteres es:{len(texto_sin_espacios)}")
+    texto = texto.lower()
+    return texto
 
 def quitar_espacios_acentos(texto):
-    return texto.replace(" ", "")
+    texto = texto.replace(" ", "")
+    texto = texto.replace("á", 'a')
+    texto = texto.replace("é", 'e')
+    texto = texto.replace("í", 'i')
+    texto = texto.replace("ó", 'o')
+    texto = texto.replace("ú", 'u')
+    texto = texto.replace("ü", 'u')
+    return texto
 
 def contar_letras(texto):
     # quitar el caracter espacio para que no me lo cuente
@@ -33,17 +39,7 @@ def invertir_palabras(texto):
     resultado = ""
     for i in range (len(lista_palabras)):
         resultado = lista_palabras[i] + " " + resultado
-    print(resultado)
-
-def quitar_espacios_en_blanco_acentos(texto):
-    texto_sin_espacios = texto.replace(" ", "")
-    for i in range (len(texto_sin_espacios)):
-        otro_texto = texto_sin_espacios.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('Á', 'A').replace('É', 'E').replace('Í', 'I').replace('Ó', 'O').replace('Ú', 'U')
-    resultado = texto_sin_espacios[i] + otro_texto
-
-
-
-
+    return resultado
 
 def main():
     menu = """
@@ -59,24 +55,28 @@ def main():
     print(menu)
     option = input("¿Qué operación quieres realizar?: ")
     resultado = ""
-    texto = input("Dime un texto: ")
     if option == "1":
-        pasar_a_minusculas(texto)
+        texto = obtener_texto()
+        resultado = pasar_a_minusculas(texto)
     elif option == "2":
-        contar_cantidad_letras(texto)
-        contar_letras(texto)
+        texto = obtener_texto()
+        resultado = contar_letras(texto)
     elif option == "3":
-        invertir_palabras(texto)
+        texto = obtener_texto()
+        resultado = invertir_palabras(texto)
     elif option == "4":
-        quitar_espacios_en_blanco_acentos
-        pass
+        texto = obtener_texto()
+        texto = pasar_a_minusculas(texto)
+        resultado = quitar_espacios_acentos(texto)
     elif option == "x":
         print("Hasta pronto, vuelve a usar este programa cuando quieras!")
         return False
     else:
         print("Valor introducido no válido. Introduce otro valor a continuación.")
+        main()
+    print("-------------------# Resultado #--------------------------------")    
     print(resultado)
+    print("-------------------# Funcionalidad terminada #------------------")
     main()
-
 
 main()
