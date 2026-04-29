@@ -71,6 +71,11 @@ for fruta in tupla_de_frutas:
 # ERROR en una TUPLA (No puede modificar ni reasignar elementos con otros valores ni añadir elementos a la tupla una vez ya creada)
 # tupla_de_frutas[0] = "Mandarina"
 
+# ERROR EN LA TUPLA SI SOLO LE DAS UN UNICO ELEMENTO
+# tupla_de_unico_elemento = ("Paula")
+tupla_de_unico_elemento = ("Paula", )
+print(tupla_de_unico_elemento)
+
 # Borrar una tupla con "del" = delete
 del tupla_de_frutas 
 # print(tupla_de_frutas) 
