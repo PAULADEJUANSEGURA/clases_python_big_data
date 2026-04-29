@@ -57,3 +57,20 @@ print(f"La tupla que se crea es: {devolver_datos_usuario()}")
 # print(f"El email es: {devolver_datos_usuario()[2]}") # email
 # print(f"Los valores de la tupla son de indice 0 a indice 1: {devolver_datos_usuario()[0:2]}") # nombre y edad
 # print(f"Los valores de la tupla son de indice 0 a indice 2: {devolver_datos_usuario()[0:3]}") # nombre, edad y email
+
+
+print("-------------------Bucle FOR --------------")
+for i in range(0, len(tupla_de_frutas)):
+    print(tupla_de_frutas[i])
+
+
+print("----------------BUCLE FOR IN-----------------")
+for fruta in tupla_de_frutas:
+    print(fruta)
+
+# ERROR en una TUPLA (No puede modificar ni reasignar elementos con otros valores ni añadir elementos a la tupla una vez ya creada)
+# tupla_de_frutas[0] = "Mandarina"
+
+# Borrar una tupla con "del" = delete
+del tupla_de_frutas 
+# print(tupla_de_frutas) 
