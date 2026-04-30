@@ -37,8 +37,8 @@ animales.reverse()
 print(animales)
 
 # ordenar la lista. modifica la lista
-numeros = [12,34,5,6,74,34,6,8,1]
-letras = ['a', 'F', 'D','i', 'b']
+numeros = [12, 34, 5, 6, 74, 34, 6, 8, 1]
+letras = ['a', 'F', 'D', 'i', 'b']
 
 numeros.sort(reverse=False)
 print(numeros)
@@ -58,3 +58,10 @@ print(nombres)
 nueva_lista = sorted(nombres, key=len , reverse=False)
 print(nombres)
 print(nueva_lista)
+
+
+# maximos y minimos
+numeros = [12,34,5,6,74,34,6,8,1]
+print(max(numeros)) # 74
+print(min(numeros)) # 1
+
