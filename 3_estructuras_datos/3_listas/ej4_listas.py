@@ -68,21 +68,32 @@ def main():
         insertar_nota_en_posicion(posicion, cambio_nota)
 
     elif opcion == "4":
-        print(f"Ordenar de mayor a menor la lista de notas: ")
+        print("Ordenar de mayor a menor la lista de notas: ")
         nueva_lista_notas = sorted(notas, reverse=True)
         print(nueva_lista_notas)
 
     elif opcion == "5":
-        print(f"Calcular media de las notas de la lista")
+        print("Calcular media de las notas de la lista")
+        media = sum(notas) / len(notas)
+        print(f"La media de las notas es: {media}")
 
     elif opcion == "6":
-        print(f"Calcular maxima nota")
+        print("Calcular maxima nota")
+        maxima_nota = max(notas)
+        print(f"La maxima nota es: {maxima_nota}")
 
     elif opcion == "7":
-        print(f"Calcular minima nota")
+        print("Calcular minima nota")
+        minima_nota = min(notas)
+        print(f"La minima nota es: {minima_nota}")
 
     elif opcion == "8":
-        print(f"Calcular aprobados: ")
+        print("Calcular aprobados: ")
+        aprobados = 0
+        for nota in notas:
+            if nota >= 5:
+                aprobados += 1
+        print(f"El número de alumnos aprobados es: {aprobados}")  
 
     elif opcion == "x":
         print("Hasta pronto")
