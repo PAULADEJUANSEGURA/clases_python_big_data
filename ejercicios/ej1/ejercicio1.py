@@ -11,30 +11,29 @@ lista_resultante_ceros = []
 
 def clasificar_numeros(numeros):
     for numero in numeros:
-        if numero == 0:
+        if not str(numero).isdigit() and str(numero)[0] != '-':
+            continue
+        elif numero == 0:
             lista_resultante_ceros.append(numero)
         elif numero > 0:
             lista_resultante_positivos.append(numero)
-        else:
+        elif numero < 0:
             lista_resultante_negativos.append(numero)
+        else:
+            print("Numero no valido")
     print(lista_resultante_ceros)
     print(lista_resultante_positivos)
     print(lista_resultante_negativos)
+    return lista_resultante_ceros , lista_resultante_positivos, lista_resultante_negativos
 
 clasificar_numeros(numeros)
 
 
-
 def estadisticas(lista):
-    resultado = 0
-    for numero in lista:
-        resultado = resultado + numero
-    print(resultado)
-    print(f'El numero maximo es {max(numeros)}')
-    print(f'El numero minimo es {min(numeros)}')
-    for i in range(0, len(numeros)):
-        promedio = resultado / len(numeros)
-        i = i + 1
-    print(promedio) 
+    print(f'El numero maximo es {max(lista)}')
+    print(f'El numero minimo es {min(lista)}')
+    print(f"La suma es igual {sum(lista)}")
+    promedio = sum(lista) / len(numeros)
+    print(f"El promedio o la media es {round(promedio)}")
      
 estadisticas(numeros)
