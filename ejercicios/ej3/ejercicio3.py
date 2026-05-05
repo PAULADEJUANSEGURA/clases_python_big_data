@@ -14,25 +14,42 @@ lista_contactos = {}
 
 def insertar_contacto(nombre, telefono, email, lista_contactos):
     # paso 1: crear el diccionario
-    contacto_nuevo = {
+    usuario = {
         'nombre': limpiadora_datos(nombre),
-        'telefono': telefono,
-        'email': email
+        'telefono': validar_telefono(telefono),
+        'email': validar_email(email)
     }
     # paso 2: añadir el diccionario a la lista
-    lista_contactos.append( contacto_nuevo )
+    lista_contactos[usuario['nombre']] = usuario['nombre']
+    lista_contactos[usuario['telefono']] = usuario['telefono']
+    lista_contactos[usuario['email']] = usuario['email']
     print("------# Contacto añadido correctamente #------")
 
-def pintamos_agenda(lista):
-    for contacto in lista:
+def pintamos_agenda(lista_contactos):
+    for usuario in lista_contactos:
         print('   ')
-        print(contacto['nombre'])
+        print(lista_contactos[usuario['nombre']])
         print('   ')
-        print(contacto['telefono'])
+        print(lista_contactos[usuario['telefono']])
         print('   ')
-        print(contacto['email'])
+        print(lista_contactos[usuario['email']])
         print('   ')
         print('###'*10)          
+
+
+def validar_telefono(telefono):
+    telefono_limpio = telefono.replace("+", "").replace(" ", "").replace("-", "")
+    if telefono_limpio.isdigit():
+        return True
+    else:
+        return False
+
+
+def validar_email(email):
+    if '@' in email and '.' in email:
+        return True
+    else:
+        return False
 
 
 def limpiadora_datos(texto):
