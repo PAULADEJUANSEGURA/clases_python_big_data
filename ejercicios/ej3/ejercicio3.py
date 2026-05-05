@@ -10,31 +10,26 @@
 # Añadir un contacto deberá pedir esos datos y comprobar que nombre no es vacio, que telefono esta formado por digitos,y que el email estan bien escrito, al menos tiene que tener @. Si esto ocurre añadimos el contacto si no lanzamos un error y volvemos al menu principal 
 
 # Leer contacto mostrara todos los contactos por pantalla
-lista_contactos = {}
+lista_contactos = {
+    
+}
 
-def insertar_contacto(nombre, telefono, email, lista_contactos):
-    # paso 1: crear el diccionario
-    usuario = {
-        'nombre': limpiadora_datos(nombre),
-        'telefono': validar_telefono(telefono),
-        'email': validar_email(email)
+def agregar_usuario(lista_contactos, nombre, telefono, email):
+    usuario_id = len(lista_contactos) + 1
+    lista_contactos[usuario_id] = {
+        "nombre": limpiadora_datos(nombre),
+        "telefono": validar_telefono(telefono),
+        "email": validar_email(email),
     }
-    # paso 2: añadir el diccionario a la lista
-    lista_contactos[usuario['nombre']] = usuario['nombre']
-    lista_contactos[usuario['telefono']] = usuario['telefono']
-    lista_contactos[usuario['email']] = usuario['email']
-    print("------# Contacto añadido correctamente #------")
+
+
 
 def pintamos_agenda(lista_contactos):
-    for usuario in lista_contactos:
-        print('   ')
-        print(lista_contactos[usuario['nombre']])
-        print('   ')
-        print(lista_contactos[usuario['telefono']])
-        print('   ')
-        print(lista_contactos[usuario['email']])
-        print('   ')
-        print('###'*10)          
+    for i in range(0, len(lista_contactos)):
+        print("------# Contacto #------")
+        print("Nombre: ", lista_contactos[i]["nombre"])
+        print("Telefono: ", lista_contactos[i]["telefono"])
+        print("Email: ", lista_contactos[i]["email"])
 
 
 def validar_telefono(telefono):
@@ -76,7 +71,8 @@ def main():
         nombre = input('Nombre del contacto: ')
         telefono = input('Teléfono: ')
         email = input('Email: ')
-        insertar_contacto(nombre, telefono, email, lista_contactos)
+        usuario_id = len(lista_contactos) + 1
+        agregar_usuario(lista_contactos, usuario_id, nombre, telefono, email)
 
     elif opcion == "2":       
         print("Has elegido la opción 2")
