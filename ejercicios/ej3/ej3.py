@@ -11,17 +11,14 @@
 
 # Leer contacto mostrara todos los contactos por pantalla
 
-# importamos una libreria con un archivo
-import lib.functions 
-
-# importamos una funcion de una libreria
-# from lib.functions import insertar_contacto
+# opcion 1: importando todo el fichero funtions
+#import lib.functions as fn
+# opcion 2: importando solo las funciones que necesitamos
+from lib.functions import insertar_contacto, validar_contacto, pintar_contactos
 
 agenda = []
 
-def insertar_contacto(nombre, email, tel, lista):
-    pass
-    
+
 
 def main():
     menu = """### Directorio de Contactos ####
@@ -33,13 +30,22 @@ def main():
     print(menu)
     option = input('Dime que opción quieres: ')
     if option == '1':
+        # pedimos los datos
        nombre = input('Introduce tu nombre: ')
        email = input('Introduce tu email: ')
        telefono = input('Introduce tu teléfono: ')
-       es_valido = validar_contacto(lista_contactos, nombre, telefono, email)
-       insertar_contacto(nombre, email, telefono, agenda)
+       # validamos los datos
+       es_valido = validar_contacto(nombre, email, telefono)
+       # si los datos son correctos insertamos el contacto
+       if es_valido:
+        insertar_contacto(nombre, email, telefono, agenda)
+       else:
+           print("""##########
+Los datos introducidos no son correctos, prueba otra vez
+############                 
+                 """)
     elif option == '2':
-        print('leer')
+        pintar_contactos(agenda)
     elif option == '3':
         print('hasta pronto')
         return
