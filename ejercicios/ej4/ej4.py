@@ -61,3 +61,19 @@ print("---# Imprimir trabajadores #----")
 imprimir_trabajadores(trabajadores)
 print("---# Imprimir Departamentos #----")
 imprimir_trabajadores_por_departamento(trabajadores)
+
+
+def filtrar_por_departamento(trabajadores, departamento):
+    lista_filtrada = []
+    for trabajador in trabajadores:
+        if trabajador["departamento"] == departamento:
+            lista_filtrada.append(trabajador)
+    return lista_filtrada
+
+print("---# Lista de trabajadores de 'Dirección' #---")
+lista_direccion = filtrar_por_departamento(trabajadores, "Dirección")
+imprimir_trabajadores(lista_direccion)
+
+print("---# Lista de trabajadores de 'Marketing' #---")
+lista_marketing = filtrar_por_departamento(trabajadores, "Marketing")
+imprimir_trabajadores(lista_marketing)
