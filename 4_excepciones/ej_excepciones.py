@@ -9,14 +9,14 @@ El programa debe imprimir siempre al final (haya fallado o no) un mensaje que di
 
 recompensas = ["Espada de madera", "Poción de salud", "Escudo", "Botas de velocidad", "Oro"]
 def pedir_recompensa():
-    numero_recompensa = int(input("Dime que recompensa quieres: "))
     try:
+        numero_recompensa = int(input("Dime que recompensa quieres: "))
         print(recompensas[numero_recompensa])
-    except ValueError:
-        print("Escribe un numero en lugar de con letras")
-        pedir_recompensa()
     except IndexError:
         print("Escribe un numero de 0 a 4. Por ejemplo: 'Espada de madera' = 0. ")  
+        pedir_recompensa()
+    except ValueError:
+        print("Escribe un numero en lugar de con letras")
         pedir_recompensa()
     finally:
         print("Cerrando el catálogo de recompensas. ¡Gracias por jugar!")
