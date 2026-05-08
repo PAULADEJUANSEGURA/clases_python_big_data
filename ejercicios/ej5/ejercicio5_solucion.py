@@ -20,27 +20,30 @@ anteriormente.
 4. Una vez calculada la letra, se debe comparar con la letra indicada por el usuario. Si no coinciden, 
 se muestra un mensaje al usuario diciéndole que la letra que ha indicado no es correcta. En otro caso, se muestra un mensaje indicando que el número y la letra de DNI son correctos.     
 """
-letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B','N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E']
 
 def main():
-    dni_completo = input("Introduce tu DNI: ")
-    if len(dni_completo) <= 9:
-        numeros = dni_completo[:-1] 
-        letra = dni_completo[-1]  
-        print(f"Los numeros son {numeros} y la letra es {letra}." )  
-        calculo = int(numeros) % 23
-        print(f"El indice de tu letra es {calculo}.")
-        print(f"La letra correcta es {letras[calculo]}")
-        resultado = "no" if letras[calculo] != letra else ""
-        print(f"DNI {dni_completo} {resultado} valido")
-    elif len(dni_completo) > 9:
-        print("Error. El dni introducido no es correcto.")
+    dni = input('dime tu dni: ').upper()
+    dni = dni.zfill(9)
+    print(dni)
+    letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B','N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'] 
+    # paso 1: comprobar si el dni tiene 9 o menos caracteres
+    if len(dni) > 9:
+        print('Dni no valido')
+        return 
+    # paso 2: extraer la letra y el numero del dni
+    letra = dni[-1]
+    numero = int(dni[:-1]) # numero sin la letra
+    i = numero % 23
+    letra_correcta = letras[i]
+    
+    # if letra != letra_correcta:
+    #     print(f'Dni {dni} no valido')
+    # else:
+    #     print(f'Dni {dni} valido')
+    
+    # condicional abreviado
+    resultado = 'no' if letra != letra_correcta else ""
+    print(f'Dni {dni} {resultado} valido')
+    
 
-main ()
-# El numero del DNI dividido entre 23 da un numero 
-
-# Contar si tiene 9 o menos en len()
-
-# Separar el numero = 12345678 y la letra Z en otra variable
-
-# El numero convertirlo a numero / 23 = resto (es decir modulo = indice del array)
+main()
