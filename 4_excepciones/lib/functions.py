@@ -1,15 +1,21 @@
 # Función 
 
 def pedir_datos(option):
-    if option == '1' or option == '2' or option == '3' or option == '4' or option == '5' or option == '6':
-        try:
+    try:
+        if option == '1' or option == '2' or option == '3' or option == '4' or option == '5' or option == '6':
             n1 = float(input('Dime un numero: '))
             n2 = float(input('Dime otro numero: '))
             return n1, n2
-        except ValueError:
-            print("El valor introducido no es un numero")
-            return False
-            
+        elif option == '7':
+            base = float(input("Dame la base: "))
+            exponente = int(input("Dame el exponente: "))
+            return base, exponente   
+        elif option == '8':
+            radicando = float(input("Dime el radicando de la raiz: "))
+            return radicando
+    except ValueError:
+        print('El valor introducido no es un numero')
+        return False   
 
 
 # restar de los datos de una tupla
@@ -43,3 +49,9 @@ def modulo(datos):
         return datos[0] % datos[1]
     except ZeroDivisionError:
         return "El modulo no puede usar cero en el divisor"
+
+def potencia(datos):
+    try:
+        return datos[0] ** datos[1]
+    except OverflowError:
+        return "El exponente es demasiado grande."
