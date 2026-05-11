@@ -1,0 +1,4 @@
+Huevos: 12
+Tomates: 5
+Pan: 1
+Manzanas: 2
