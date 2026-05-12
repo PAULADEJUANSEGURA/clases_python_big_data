@@ -1,0 +1,2 @@
+Leche Desnatada Pascual => cantidad: 6
+Café Soluble Nescafe => cantidad: 1
