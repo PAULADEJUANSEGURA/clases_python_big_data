@@ -63,6 +63,6 @@ def cargar_datos3(carpeta, fichero):
     # Lo convertimos a lista con LIST (lector)
     lista_empleados = list(lector)
     print(lista_empleados)
-    
+    fichero.close()
 
 cargar_datos3('data', 'empleados.csv')  
