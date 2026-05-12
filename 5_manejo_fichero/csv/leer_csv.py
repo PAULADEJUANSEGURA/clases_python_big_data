@@ -54,3 +54,15 @@ def crear_diccionario_2(ruta, nombre_fichero):
 
 resultado_2 = crear_diccionario_2('data', 'empleados.csv')
 print(resultado_2)
+
+
+
+def cargar_datos3(carpeta, fichero):
+    fichero = open(f"{carpeta}/{fichero}", "r", encoding='UTF-8')
+    lector = csv.DictReader(fichero) 
+    # Lo convertimos a lista con LIST (lector)
+    lista_empleados = list(lector)
+    print(lista_empleados)
+    
+
+cargar_datos3('data', 'empleados.csv')  
