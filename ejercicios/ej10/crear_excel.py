@@ -1,11 +1,8 @@
+import os 
 from openpyxl import Workbook
 
-lista_empleados = [
-    {'id': 1, 'nombre': 'Juan Antonio', 'apellidos': 'Pérez Jarillo', 'correo': 'jj@gmail.com', 'departamento': 'Desarrollo' },
-    {'id': 2, 'nombre': 'Almudena', 'apellidos': 'González Camuñas', 'correo': 'almu@gmail.com', 'departamento': 'Finanzas' },
-    {'id': 3, 'nombre': 'Marta', 'apellidos': 'Rodriguez Lopez', 'correo': 'marta@gmail.com', 'departamento': 'Marketing' },
-    {'id': 4, 'nombre': 'Joaquin', 'apellidos': 'Calvo Lopez', 'correo': 'joaquin@gmail.com', 'departamento': 'Finanzas' },
-    {'departamento': 'Cuentas' , 'id': 5, 'apellidos': 'Pérez Alvárez', 'nombre': 'Lucia', 'correo': 'lucia@gmail.com', },
+lista_de_productos = [
+
 ]
 
 def crear_excel(carpeta, fichero, datos):
@@ -13,7 +10,7 @@ def crear_excel(carpeta, fichero, datos):
     wb = Workbook()
     # seleccionamos al primera hoja
     hoja = wb.active
-    hoja.title = 'Empleados'
+    hoja.title = 'Inventario'
     
     # extraer de un diccionario cualquier de mi lista las cabeceras.
     cabeceras = list(datos[0].keys())
@@ -21,13 +18,13 @@ def crear_excel(carpeta, fichero, datos):
     hoja.append(cabeceras)
     
     # recorremos nuestra de lista de datos para imprimir en cada fila un dato concreto
-    for empleado in datos:
-        # para que esto funcione el empleado tiene que tener los datos en el mismo orden que la lista caberas. Y estar convertido en lista.
-        # lista_empleado = list(empleado.values())
-        lista_empleado = [empleado[clave] for clave in cabeceras ]
-        hoja.append(lista_empleado)
+    for producto in datos:
+        # para que esto funcione el producto tiene que tener los datos en el mismo orden que la lista caberas. Y estar convertido en lista.
+        lista_producto = list(producto.values())
+        lista_producto = [producto[clave] for clave in cabeceras ]
+        hoja.append(lista_producto)
     
     wb.save(f'./{carpeta}/{fichero}')
 
 
-crear_excel('data', 'trabajadores.xlsx', lista_empleados)
+crear_excel('data', 'productos.xlsx', lista_de_productos)
