@@ -7,7 +7,7 @@ lista = [ 1, 1, 1, 2, 2, 2, 2, 3, 3, 3 ,3 ,3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 3, 6
 mi_set = set(lista)
 
 # Una lista completa en consola se ve [entre corchetes]
-print(f"Lista original: {lista}")  # Lista original: [1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 3, 6, 7, 5, 9]
+print(f"Lista original: {lista}") 
 
 # Un set en consola se ve {entre llaves}
 print(f"Set: {mi_set}") # Set: {1, 2, 3, 4, 5, 6, 7, 9}
@@ -49,3 +49,17 @@ del(frutas)
 # list()
 # tuple()
 # dictionary()
+
+lista_de_numeros = []
+for i in range(0, 50, 5):
+    lista_de_numeros.append(i)
+print(f"Lista de números: {lista_de_numeros}")
+lista_de_numeros_con_duplicados = lista_de_numeros + lista_de_numeros
+print(f"Lista de números con duplicados: {lista_de_numeros_con_duplicados}")
+
+lista_de_numeros = set(lista_de_numeros_con_duplicados)
+print(f" el SET es {lista_de_numeros}")
+lista_de_numeros = list(lista_de_numeros)
+print(f" Ahora vuelve a ser una lista {lista_de_numeros}")
+nueva_lista = sorted(lista_de_numeros, reverse=False)
+print(f"La nueva lista de numeros ordenada es {nueva_lista}")

@@ -12,7 +12,7 @@ print(f"Mi segunda tupla contiene: {tupla_de_frutas}")
 
 # ¿Como saber la longitud de una tupla?
 print("Mi segunda tupla contiene nombres de frutas: ")
-print(f"La longitud de la tupla es: {len(tupla_de_frutas)}")
+print(f"La longitud de la segunda tupla de frutas es: {len(tupla_de_frutas)}")
 
 # ¿Como obtener un índice de una tupla? Se numero de 0 a n-1 siendo n la Longitud
 print(f"El primer elemento de mi_primera_tupla es: {mi_primera_tupla[0]}")
@@ -49,14 +49,11 @@ def devolver_datos_usuario():
     email = input("Dime tu email: ")
     return nombre, edad, email
 
-
-
-print(f"La tupla que se crea es: {devolver_datos_usuario()}")
-# print(f"El nombre es: {devolver_datos_usuario()[0]}") # nombre
-# print(f"La edad es: {devolver_datos_usuario()[1]}") # edad
-# print(f"El email es: {devolver_datos_usuario()[2]}") # email
-# print(f"Los valores de la tupla son de indice 0 a indice 1: {devolver_datos_usuario()[0:2]}") # nombre y edad
-# print(f"Los valores de la tupla son de indice 0 a indice 2: {devolver_datos_usuario()[0:3]}") # nombre, edad y email
+tupla_usuario = devolver_datos_usuario()
+print(f"La tupla que se crea es: {tupla_usuario}")
+print(f"El nombre del usuario es: {tupla_usuario[0]}")  
+print(f"La edad del usuario es: {tupla_usuario[1]}")    
+print(f"El email del usuario es: {tupla_usuario[2]}")
 
 
 print("-------------------Bucle FOR --------------")
