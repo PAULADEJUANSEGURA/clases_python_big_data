@@ -1,10 +1,12 @@
-# Filtrado de una lista
+### Filtrado de listas.
 
-numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 74, 45, 89, 27]
 
+numeros = [1,2,4,6,74,3,45,7,89,3,34,56,4,53,2,5]
+otro_lista = [1,3,4,3,6,674,32,6]
 
 numeros_pares = []
 numeros_impares = []
+
 
 def obtener_lista_pares(lista):
     lista_resultante = []
@@ -13,15 +15,5 @@ def obtener_lista_pares(lista):
             lista_resultante.append(numero)
     return lista_resultante
 
-def obtener_lista_impares(lista):
-    lista_resultante_impares = []
-    for numero in lista:
-        if numero % 2 != 0:
-            lista_resultante_impares.append(numero)
-    return lista_resultante_impares
-
-
-numeros_pares = obtener_lista_pares(numeros)
+numeros_pares = obtener_lista_pares(otro_lista)
 print(numeros_pares)
-numeros_impares = obtener_lista_impares(numeros)
-print(numeros_impares)

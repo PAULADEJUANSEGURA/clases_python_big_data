@@ -1,19 +1,15 @@
-# Pedimos 2 numeros
+
 try:
-    numero1 = int(input("Dime un numero: "))
-    numero2 = int(input("Dime un numero: "))
-
-    resultado = numero1 / numero2
+    numero = int(input('Dime un numero: '))
+    numero2 = int(input('Dime otro numero: '))
+    resultado = numero / numero2
     print(resultado)
-
-# Excepciones propias de Python
 except ValueError:
-    print("Los valores introducidos no son correctos.")
+    print('Los valores introducidos no son numeros')
 except ZeroDivisionError:
-    print("No se puede dividir por cero.")
-# excepcion genérica
+    print('no se puede dividir por cero')
 except:
-    print("Futuro error no previsto.")
+    print('futuro error no previsto')
 
 
-print("---- El programa continua tras el error ---")
+print('otros calculos')

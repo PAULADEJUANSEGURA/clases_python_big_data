@@ -1,20 +1,11 @@
-# pedir numeros por pantalla,
-# insertarlos en una lista de numeros, 
-# el programa para cuando introduzcamos un letra 
-# y dicha letra no estará en la lista.
-lista = []
+# pedir numeros por pantalla, insertarlos en una lista de numeros, el programa para cuando introduzcamos un letra y dicha letra no estará en la lista.
 
-def pedir_numero():
-    while True:
-        numero = input("Dime un numero: ")
-        # if numero.isalpha():
-        numero_sin_signo = numero.replace("-", "")                  
-        if not numero_sin_signo.isdigit():
-                break
-        lista.append(int(numero))
-        # print(lista)
-    print(lista)    
+lista_numeros = []
 
-pedir_numero()
-   
-
+while True:
+    numero = input('Dime un numero: ')
+    if not numero.isdigit():
+        break
+    lista_numeros.append(int(numero))
+    
+print(lista_numeros)
