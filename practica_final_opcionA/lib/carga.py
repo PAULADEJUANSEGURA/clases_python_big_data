@@ -7,6 +7,14 @@ import xml.etree.ElementTree as et
 # Importamos un archivo JSON
 import json
 
+# Importamos la libreria import os para trabajar con archivos y directorios
+import os
+
+# Importamos la librería para trabajar con archivos Excel para LEERLOS con load_workbook!!
+from openpyxl import load_workbook, Workbook
+
+
+
 # Creo función para cargar csv (artistas)
 def cargar_csv(carpeta, nombre_fichero):
     # Cargo archivo csv
@@ -51,3 +59,18 @@ def leer_json(carpeta, nombre_fichero):
     ventas_entradas_datos = json.load(fichero)
     return ventas_entradas_datos
 
+# Definimos función para obtener los Excel (Escenarios_horarios.xlsx)
+def leer_excel_escenarios(carpeta, nombre_fichero):
+    #cargar el fichero de excel en nuestro archivo
+    libro_excel = load_workbook(f'./{carpeta}/{nombre_fichero}')
+    hoja = libro_excel.active
+    # Creamos una lista vacía para almacenar los datos
+    escenarios_horarios = []
+    filas = hoja.iter_rows(values_only = True)
+    cabeceras = next(filas)
+    # Iterar sobre las filas de la hoja
+    for fila in hoja.iter_rows(min_row=2, values_only=True):
+        escenarios_dict = dict(zip(cabeceras, fila))
+        escenarios_horarios.append(escenarios_dict)
+    
+    return escenarios_horarios
