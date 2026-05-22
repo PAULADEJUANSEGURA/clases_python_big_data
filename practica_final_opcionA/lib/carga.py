@@ -17,6 +17,7 @@ from openpyxl import load_workbook, Workbook
 
 # Creo función para cargar csv (artistas)
 def cargar_csv(carpeta, nombre_fichero):
+    lista_artistas = []
     # Cargo archivo csv
     fichero_csv = open(f"./{carpeta}/{nombre_fichero}", 'r', encoding='UTF-8')
     # Creo elemento lector que me va a permitir leer el csv
@@ -24,11 +25,9 @@ def cargar_csv(carpeta, nombre_fichero):
     # si el archivo tiene cabeceras me las salto
     next(lector)
     for fila in lector:
-        print("-" * 10) 
-        print(fila)
+        lista_artistas.append(fila)
+    return lista_artistas
 
-
-lista_artistas = []
 
 # Creo función para leer patrocinadores.xml
 def cargar_patrocinadores(carpeta, nombre_fichero):
