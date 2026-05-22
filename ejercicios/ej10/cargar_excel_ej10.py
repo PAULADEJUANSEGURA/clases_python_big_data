@@ -1,5 +1,6 @@
 import os
 from openpyxl import load_workbook, Workbook
+from lib.functions import limpiar_id, limpiar_texto, limpiar_precio, limpiar_stock  
 
 def cargar_excel(carpeta, archivo):
    excel = load_workbook(f"./{carpeta}/{archivo}")
@@ -50,14 +51,7 @@ def procesar(datos):
             'precio': limpiar_precio(item['precio']),
             'stock': limpiar_stock(item['stock']),
         }
-
-        for clave, valor in item.items():
-            if isinstance(valor, str):
-                valor_limpio = valor.strip()
-            else:
-                valor_limpio = valor
-            item_limpio[clave] = valor_limpio
-        lista_limpia_vacia.append(item_limpio)
+    lista_limpia_vacia.append(item_limpio)
 
 datos = cargar_excel("data", "inventario_sucio.xlsx")
 datos_limpios = procesar(datos)
