@@ -108,6 +108,38 @@ def normalizar_texto(texto):
     return texto
 
 
+def limpiar_cache_eur(lista_artistas):
+    lista_artistas_limpiado_cache = []
+    for artista in lista_artistas:
+       
+        artista['cache_eur'] = artista['cache_eur'].replace(".","")
+        artista['cache_eur'] = artista['cache_eur'].replace(",",".") 
+        artista['cache_eur'] = artista['cache_eur'].replace("€","")
+        artista['cache_eur'] = artista['cache_eur'].replace("$","")
+        artista['cache_eur'] = float(artista['cache_eur']) 
+        if artista['cache_eur'] > 250000:
+            artista['cache_eur'] = 'None'
+        else:
+            lista_artistas_limpiado_cache.append(artista['cache_eur'])
+            print(artista['cache_eur'])       
+    
+    return lista_artistas_limpiado_cache    
+
+
+
+def limpiar_artistas(lista_artistas):
+    lista_artistas_normalizado_texto = []
+    for artista in lista_artistas:
+        artista['id_artista'] = normalizar_texto(artista['id_artista'])
+        artista['nombre'] = normalizar_texto(artista['nombre'])
+        artista['genero_musical'] = normalizar_texto(artista['genero_musical'])
+        artista['pais'] = normalizar_texto(artista['pais'])
+        artista['email_manager'] = normalizar_texto(artista['email_manager'])
+        artista['telefono'] = normalizar_texto(artista['telefono'])
+        print(artista)
+        lista_artistas_normalizado_texto.append(artista)
+       
+    return lista_artistas_normalizado_texto
 
 
 

@@ -63,11 +63,11 @@ def detectar_variaciones(datos, campo):
     return variaciones
 
 
-def detectar_fuera_rango(datos, campo, minimo, maximo):
+def detectar_fuera_rango(datos, precio, minimo, maximo):
     contador = 0
     for registro in datos:
         try:
-            valor = float(registro[campo])
+            valor = float(registro[precio])
             if valor < minimo or valor > maximo:
                 contador += 1
         except:
@@ -102,5 +102,4 @@ def auditar_fichero(nombre_fichero, datos):
             "espacios_extra": detectar_espacios_extra(datos)
         }
     }
-
     return auditoria

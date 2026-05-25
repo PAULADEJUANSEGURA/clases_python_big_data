@@ -1,8 +1,7 @@
 # Importo la librería de funciones
 import lib.carga as cargar
-import lib.limpieza as limpiar
-
-
+from lib.limpieza import limpiar_cache_eur, limpiar_artistas
+from lib.auditoria import auditar_fichero, contar_vacios, detectar_duplicados, detectar_espacios_extra, detectar_variaciones, detectar_fuera_rango
 # Definimos funcion principal main
 def main():
     """# Leer artistas cargar artistas.csv
@@ -30,6 +29,31 @@ cargar.mostrar_resumen("artistas.csv", artistas)
 cargar.mostrar_resumen("ventas_entradas.json", ventas_entradas)
 cargar.mostrar_resumen("patrocinadores.xml", patrocinadores)
 cargar.mostrar_resumen("escenarios_horarios.xlsx", escenarios)
+
+
+print("=== AUDITORÍA: artistas.csv ===")
+auditoria_fichero = auditar_fichero('artistas.csv', artistas)
+print(auditoria_fichero)
+
+vacios_auditoria = contar_vacios(artistas)
+duplicados_auditoria = detectar_duplicados(artistas)
+variaciones_auditoria = detectar_variaciones(artistas)
+espacios_indebidos_auditoria = detectar_espacios_extra(artistas)
+fuera_rango_auditoria = detectar_fuera_rango(artistas, artistas['cache_eur'], 0 , 250000)
+
+lista_artistas_normalizado_texto = limpiar_artistas(artistas)
+lista_artistas_limpiado_cache = limpiar_cache_eur(artistas)
+
+
+
+print("====================================")
+print(lista_artistas_normalizado_texto)
+print("====================================")
+print(lista_artistas_limpiado_cache)
+print("====================================")
+
+
+
 
 
 main()
