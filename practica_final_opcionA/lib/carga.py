@@ -21,13 +21,10 @@ def cargar_csv(carpeta, nombre_fichero):
     fichero_csv = open(f"./{carpeta}/{nombre_fichero}", 'r', encoding='UTF-8')
     # Creo elemento lector que me va a permitir leer el csv
     lector = csv.DictReader(fichero_csv)
-    # si el archivo tiene cabeceras me las salto
-    next(lector)
-    lista_artistas = []
+    lista = []
     for fila in lector:
-        lista_artistas.append(dict(fila))
-    return lista_artistas
-
+        lista.append(dict(fila))
+    return lista
 
 # Creo función para leer patrocinadores.xml
 def cargar_xml(carpeta, nombre_fichero):
